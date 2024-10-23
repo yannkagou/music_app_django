@@ -24,8 +24,8 @@ class SubscriberDetails(RetrieveUpdateAPIView):
 class CurrentSubscriber(APIView):
     permission_classes = [IsAuthenticated]
     def get(self, request):
-        customer = Subscriber.objects.get(user_id=request.user.id)
-        serializer = SubscriberSerializer(customer)
+        subscriber = Subscriber.objects.get(user_id=request.user.id)
+        serializer = SubscriberSerializer(subscriber)
 
         return Response(serializer.data)
     
